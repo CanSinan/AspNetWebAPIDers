@@ -1,4 +1,6 @@
 
+using AspNETWebAPIDers.Models;
+
 namespace AspNETWebAPIDers
 {
     public class Program
@@ -13,6 +15,24 @@ namespace AspNETWebAPIDers
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            // CORS POLICY
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", build =>
+                {
+                    build.AllowAnyHeader()
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod();
+                });
+            });
+
+            // SERVÝCES
+            builder.Services.AddScoped(typeof(ResponseModel));
+            
+
+
+
 
             var app = builder.Build();
 
@@ -29,7 +49,7 @@ namespace AspNETWebAPIDers
 
 
             app.MapControllers();
-
+            app.UseCors("AllowAll");
             app.Run();
         }
     }
