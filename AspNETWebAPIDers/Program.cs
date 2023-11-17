@@ -1,4 +1,6 @@
 
+using AspNETWebAPIDers.Models;
+
 namespace AspNETWebAPIDers
 {
     public class Program
@@ -13,7 +15,7 @@ namespace AspNETWebAPIDers
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddScoped(typeof(ResponseModel));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
