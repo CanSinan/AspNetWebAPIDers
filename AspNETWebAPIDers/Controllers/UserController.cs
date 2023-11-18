@@ -10,9 +10,9 @@ namespace AspNETWebAPIDers.Controllers
     public class UserController : ControllerBase
     {
         private readonly LMSDBContext _context;
-        public UserController()
+        public UserController(LMSDBContext context)
         {
-            _context = new LMSDBContext();
+            _context = context;
         }
 
         [HttpGet]
