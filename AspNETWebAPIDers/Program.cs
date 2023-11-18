@@ -1,5 +1,6 @@
-
 using AspNETWebAPIDers.Models;
+using LMS.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNETWebAPIDers
 {
@@ -10,6 +11,7 @@ namespace AspNETWebAPIDers
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,9 +29,15 @@ namespace AspNETWebAPIDers
                 });
             });
 
+            //Database Connection
+            builder.Services.AddDbContext<LMSDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Conn"));
+            });
+
             // SERVÝCES
             builder.Services.AddScoped(typeof(ResponseModel));
-            
+
 
 
 
