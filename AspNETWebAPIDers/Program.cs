@@ -1,5 +1,7 @@
 using AspNETWebAPIDers.Models;
 using LMS.Data.Entities;
+using LMS.Data.Repositories;
+using LMS.Data.Repositories.UserRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNETWebAPIDers
@@ -37,7 +39,8 @@ namespace AspNETWebAPIDers
 
             // SERVÝCES
             builder.Services.AddScoped(typeof(ResponseModel));
-
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 

@@ -8,28 +8,24 @@ namespace AspNETWebAPIDers.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly ResponseModel _responseModel;
-
-        public AuthController(ResponseModel responseModel)
-        {
-            _responseModel = responseModel;
-        }
+       
 
         [HttpPost()]
         public ResponseModel Login(LoginModel loginModel)
         {
+            var response = new ResponseModel();
             if (loginModel.UserName == "sinan" && loginModel.Password == "123")
             {
-                _responseModel.Message = "Login işlemi başarılı";
-                _responseModel.Code = "200";
-                _responseModel.Data = null;
-                return _responseModel;
+                response.Message = "Login işlemi başarılı";
+                response.Code = "200";
+                response.Data = null;
+                return response;
             }
 
-            _responseModel.Message = "Login işlemi başarısız";
-            _responseModel.Code = "401";
-            _responseModel.Data = null;
-            return _responseModel;
+            response.Message = "Login işlemi başarısız";
+            response.Code = "401";
+            response.Data = null;
+            return response;
         }
 
 
