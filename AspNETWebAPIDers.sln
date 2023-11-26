@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNETWebAPIDers", "AspNETWebAPIDers\AspNETWebAPIDers.csproj", "{B98CDC8A-6A0C-4BD3-A29C-F74B06D5E045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{E626020A-BD44-40A9-8901-89A1004C4240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{E626020A-BD44-40A9-8901-89A1004C4240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMSServices", "LMSServices\LMSServices.csproj", "{2A74AB9B-BF49-4A21-9F2C-45E381B6A28C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E626020A-BD44-40A9-8901-89A1004C4240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E626020A-BD44-40A9-8901-89A1004C4240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E626020A-BD44-40A9-8901-89A1004C4240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A74AB9B-BF49-4A21-9F2C-45E381B6A28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A74AB9B-BF49-4A21-9F2C-45E381B6A28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A74AB9B-BF49-4A21-9F2C-45E381B6A28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A74AB9B-BF49-4A21-9F2C-45E381B6A28C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
