@@ -1,4 +1,5 @@
-﻿using LMS.Data.Entities;
+﻿using AspNETWebAPIDers.Models.User;
+using LMS.Data.Entities;
 using LMS.Data.Repositories.UserRepository;
 using LMSServices.Services;
 using Microsoft.AspNetCore.Http;
@@ -31,8 +32,16 @@ namespace AspNETWebAPIDers.Controllers
             return await _userService.GetByIdAsync(id);
         }
         [HttpPost]
-        public async Task<User> Post([FromBody] User user)
+        public async Task<User> Post([FromBody] UserRequestModel userRequestModel)
         {
+            var user = new User
+            {
+                FirsName = userRequestModel.FirsName,
+                LastName = userRequestModel.LastName,
+                Email = userRequestModel.Email,
+                Password = userRequestModel.Password,
+                RoleId = userRequestModel.RoleId,
+            };
             return await _userService.InsertAsnyc(user);
         }
         [HttpPut]
