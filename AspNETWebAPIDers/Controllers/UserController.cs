@@ -1,11 +1,8 @@
-﻿using AspNETWebAPIDers.Models.User;
+﻿using AutoMapper;
 using LMS.Data.Entities;
-using LMS.Data.Repositories.UserRepository;
+using LMSServices.Models;
 using LMSServices.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
 
 namespace AspNETWebAPIDers.Controllers
 {
@@ -13,12 +10,14 @@ namespace AspNETWebAPIDers.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-       
-        private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        private readonly IUserService _userService;
+        private readonly IMapper _mapper;
+
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -34,15 +33,8 @@ namespace AspNETWebAPIDers.Controllers
         [HttpPost]
         public async Task<User> Post([FromBody] UserRequestModel userRequestModel)
         {
-            var user = new User
-            {
-                FirsName = userRequestModel.FirsName,
-                LastName = userRequestModel.LastName,
-                Email = userRequestModel.Email,
-                Password = userRequestModel.Password,
-                RoleId = userRequestModel.RoleId,
-            };
-            return await _userService.InsertAsnyc(user);
+            var userMap= _mapper.Map<User>(userRequestModel);
+            return await _userService.InsertAsnyc(userMap);
         }
         [HttpPut]
         public async Task<User> Put([FromBody] User user)
