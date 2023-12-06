@@ -1,4 +1,4 @@
-﻿namespace AspNETWebAPIDers.Models.User
+﻿namespace LMSServices.Models
 {
     public class UserRequestModel
     {

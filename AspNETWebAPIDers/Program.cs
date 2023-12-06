@@ -1,4 +1,5 @@
 using AspNETWebAPIDers.Models;
+using AutoMapper;
 using LMS.Data.Entities;
 using LMS.Data.Repositories;
 using LMS.Data.Repositories.UserRepository;
@@ -43,7 +44,13 @@ namespace AspNETWebAPIDers
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
-
+            //AutoMapper Config
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new LMSServices.Mappers.MappingProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
 
 
             var app = builder.Build();
