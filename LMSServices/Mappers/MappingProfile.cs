@@ -7,6 +7,7 @@ namespace LMSServices.Mappers
         public MappingProfile()
         {
             CreateMap<Models.UserRequestModel, LMS.Data.Entities.User>().ReverseMap();
+            CreateMap<Models.UserResponseModel, LMS.Data.Entities.User>().ReverseMap();
 
         }
     }
